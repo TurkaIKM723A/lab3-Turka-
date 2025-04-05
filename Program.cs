@@ -2,38 +2,31 @@
 
 class Program
 {
-    static void Main()
+ static void Main()
     {
-        Console.Write("Enter size of ur array: ");
-        int size = int.Parse(Console.ReadLine());
+        int number;
+        int max = int.MinValue;
 
-        int[] array = new int[size];
+        Console.WriteLine("Enter ur number. Enter 0 to end ur sequence of numbers.");
 
-        Console.WriteLine("Enter digits for ur array:");
-        for (int i = 0; i < size; i++)
+        do
         {
-            Console.Write($"Element [{i}]: ");
-            array[i] = int.Parse(Console.ReadLine());
-        }
+            number = int.Parse(Console.ReadLine());
 
-        bool isPalindrome = true;
-
-        for (int i = 0; i < size / 2; i++)
-        {
-            if (array[i] != array[size - 1 - i])
+            if (number != 0 && number > max)
             {
-                isPalindrome = false;
-                break;
+                max = number;
             }
-        }
 
-        if (isPalindrome)
+        } while (number != 0);
+
+        if (max == int.MinValue)
         {
-            Console.WriteLine("Array is a palindrome.");
+            Console.WriteLine("You didnt enter any digit.");
         }
         else
         {
-            Console.WriteLine("Array is not a palindrome.");
+            Console.WriteLine("Your max number: " + max);
         }
     }
 }
